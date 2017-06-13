@@ -1,10 +1,9 @@
 # Base image
-FROM node:7.7.2-alpine
+FROM node:8.0.0-alpine
 
 # Set version numbers
-ENV PM2_VERSION 2.4.2
-ENV NPS_VERSION 5.0.4
-ENV NGCLI_VERSION 1.0.0-rc.2
+ENV PM2_VERSION 2.4.6
+ENV NGCLI_VERSION 1.1.0
 ENV PHANTOM_VERSION 2.11
 
 # Install PhantomJS
@@ -16,7 +15,6 @@ RUN apk update && apk add --no-cache fontconfig curl && \
   && phantomjs --version
 
 # Install global packages
-RUN npm install -g nps@${NPS_VERSION}
 RUN npm install -g pm2@${PM2_VERSION}
 RUN npm install -g @angular/cli@${NGCLI_VERSION}
 
