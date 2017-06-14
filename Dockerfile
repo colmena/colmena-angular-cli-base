@@ -1,8 +1,8 @@
 # Base image
-FROM node:8.0.0-alpine
+FROM node:8.1.0-alpine
 
 # Set version numbers
-ENV PM2_VERSION 2.4.6
+ENV PM2_VERSION 2.5.0
 ENV NGCLI_VERSION 1.1.0
 ENV PHANTOM_VERSION 2.11
 
@@ -25,7 +25,7 @@ WORKDIR /app
 # Add package.json and install deps
 ADD package.json /app/package.json
 RUN npm install @angular/cli@${NGCLI_VERSION}
-RUN npm install && npm cache clean
+RUN npm install
 
 # Expose the listening port
 EXPOSE 4200
